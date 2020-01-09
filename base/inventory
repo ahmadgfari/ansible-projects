@@ -1,0 +1,2 @@
+[dev]
+kube-master ansible_host=54.169.175.85 

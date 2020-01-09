@@ -1,0 +1,3 @@
+---
+user_password: devs@123
+ssh_pubkey: "{{lookup('file', 'templates/devops.pub.j2')}}"

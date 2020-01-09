@@ -1,0 +1,6 @@
+---
+- name: Coverage
+  hosts: dev
+  become: yes
+  roles:
+    - role: bootstrap-os

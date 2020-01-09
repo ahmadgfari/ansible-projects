@@ -1,0 +1,38 @@
+---  
+- name: Test Connection
+  ping:
+
+- name: Create User
+  user:
+    name: "{{ new_user }}"
+    shell: /bin/bash
+    groups: sudo
+    append: yes
+    password: "{{ user_password | password_hash('sha512') }}"
+    state: present
+    createhome: yes
+
+- name: Create .ssh directory if it's not exist
+  file:
+    path: '/home/{{new_user}}/.ssh'
+    state: directory
+    owner: "{{new_user}}"
+    group: "{{new_user}}"
+    mode: '700'
+
+- name: Set authorized key from file to user {{new_user}}
+  authorized_key:
+    user: "{{new_user}}"
+    state: present
+    key: "{{ssh_pubkey}}"
+
+# - name: create authorized_keys file and add ssh key
+#   copy: 
+#     content: "{{ssh_pubkey}}"
+#     dest: '/home/{{new_user}}/.ssh/authorized_keys'
+
+# - name: Inject pubkey to user "{{new_user}}"
+#   lineinfile:
+#     path: '/home/"{{new_user}}"/.ssh/authorized_keys'
+#     line: "{{ssh_pubkey}}"
+#     mode: 600

@@ -1,0 +1,4 @@
+---
+# tasks file for aws
+- include: tasks/launch-ec2.yml
+  when: state == "present"

@@ -1,0 +1,12 @@
+[otten:children]
+base_os
+jenkins
+ecommerce
+smartretail
+subscription
+
+[base_os:children]
+base_os-dev
+
+[base_os-dev]
+node-poc ansible_host=54.169.175.85

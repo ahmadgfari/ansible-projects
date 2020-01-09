@@ -1,0 +1,4 @@
+---
+# tasks file for create-user
+- name: Bootstrap new VM
+  include_tasks: create-user.yml
