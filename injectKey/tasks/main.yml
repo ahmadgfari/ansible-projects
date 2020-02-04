@@ -1,0 +1,3 @@
+---
+# tasks file for mgmtUser
+- include_tasks: inject.yml  
