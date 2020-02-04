@@ -3,9 +3,9 @@ cekpoin
 prod
 
 [cekpoin]
-cekpoin-ecom ansible_host=172.31.18.36
-cekpoin-subs ansible_host=172.31.20.74 
-cekpoin-deliv ansible_host=172.31.18.1 
+cekpoin-ecom ansible_host=18.139.58.236
+cekpoin-subs ansible_host=18.136.76.172 
+cekpoin-deliv ansible_host=13.228.148.137 
 
 [prod:children]
 e-commerce
@@ -29,3 +29,17 @@ prod-smart-retail-002 ansible_host=172.31.20.119
 
 [frontend]
 xxxxxhostxxx ansible_host=x.x.x.x 
+
+[devops:children]
+jenkins
+devs
+monitoring
+
+[jenkins]
+ci-jenkins.cekpoin.net ansble_host=ci-jenkins.cekpoin.net local_ip=10.123.1.6 ansible_user=centos
+
+[devs]
+devs.cekpoin.net ansible_host=devs.cekpoin.net local_ip=172.31.27.166
+
+[monitoring]
+grafana.ottencoffee.co.id ansible_host=grafana.ottencoffee.co.id local_ip=172.31.18.157 ansible_user=ubuntu
