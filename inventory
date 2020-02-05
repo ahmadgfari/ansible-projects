@@ -3,9 +3,9 @@ cekpoin
 prod
 
 [cekpoin]
-cekpoin-ecom ansible_host=18.139.58.236
-cekpoin-subs ansible_host=18.136.76.172 
-cekpoin-deliv ansible_host=13.228.148.137 
+cekpoin-ecom ansible_host=18.139.58.236 ansible_user=ubuntu
+cekpoin-subs ansible_host=18.136.76.172 ansible_user=ubuntu
+cekpoin-deliv ansible_host=13.228.148.137 ansible_user=ubuntu
 
 [prod:children]
 e-commerce
@@ -37,7 +37,7 @@ monitoring
 ci-jenkins.cekpoin.net ansble_host=ci-jenkins.cekpoin.net local_ip=10.123.1.6 ansible_user=centos
 
 [devs]
-devs.cekpoin.net ansible_host=devs.cekpoin.net local_ip=172.31.27.166 ansible_user=centos
+devs.cekpoin.net ansible_host=devs.cekpoin.net local_ip=172.31.27.166 ansible_user=centos ansible_port=2222
 
 [monitoring]
 grafana.ottencoffee.co.id ansible_host=grafana.ottencoffee.co.id local_ip=172.31.18.157 ansible_user=ubuntu
