@@ -1,11 +1,8 @@
 ---
-- hosts: all
-  tasks:
-  - name: Set authorized key taken from file
-    authorized_key:
-      user: "{{ user }}"
-      state: present
-      key: "{{ lookup('file', '{{ dir }}/ansible/id_rsa.pub') }}"
-    tags: 
-    - inject
+- name: Set authorized key taken from file
+  authorized_key:
+    user: "{{ user }}"
+    state: present
+    key: "{{ lookup('file', '{{ dir }}') }}"
+  become: true
 
