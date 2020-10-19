@@ -1,0 +1,17 @@
+---
+- name: Create User
+  hosts: all
+  become: yes
+  tasks:
+    - name: Create user
+      user:
+        name: "{{ user }}"
+        password: "{{ pass | password_hash('sha512') }}" 
+        shell: /bin/bash
+        groups: developer
+    - name: add to sudo
+      user:
+        name: "{{ user }}"
+        groups: sudo
+        append: yes
+      when: grant == "sudo"
