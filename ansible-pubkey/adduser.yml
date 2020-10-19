@@ -1,0 +1,30 @@
+---
+- name: Create User on list
+  hosts: all
+  become: yes
+  tasks:
+    - name: Create user
+      user:
+        name: "{{ user }}"
+        shell: /bin/bash
+        groups: developer
+    - name: Create .ssh folder
+      file:
+        path: ~{{ user }}/.ssh
+        state: directory
+        owner: "{{ user }}"
+        group: "{{ user }}"
+        mode: 0700
+    - name: Upload SSH key
+      copy:
+        src: ./id_rsa.pub
+        dest: ~{{ user }}/.ssh/authorized_keys
+        owner: "{{ user }}"
+        group: "{{ user }}"
+        mode: 0700
+    - name: Change group to sudo
+      user:
+        name: "{{ user }}"
+        groups: sudo
+        append: yes 
+      when: grant == "sudo"

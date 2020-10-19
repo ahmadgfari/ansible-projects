@@ -1,0 +1,11 @@
+---
+- name: Delete User on list
+  hosts: all
+  become: yes
+  tasks:
+    - name: Delete User
+      user:
+        name: "{{ user }}"
+        state: absent
+        remove: yes
+        force: yes
