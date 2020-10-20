@@ -1,44 +1,16 @@
-[otten:children]
-cekpoin
-prod
+[99group:children]
+prod-bastion
 
-[cekpoin]
-cekpoin-ecom ansible_host=18.139.58.236 ansible_user=ubuntu
-cekpoin-subs ansible_host=18.136.76.172 ansible_user=ubuntu
-cekpoin-deliv ansible_host=13.228.148.137 ansible_user=ubuntu
+[prod-bastion:children]
+bastion-urbanindo
+bastion-99id
+bastion-r123
 
-[prod:children]
-e-commerce
-smart-retail
-frontend
-monitoring
-metabase
+[bastion-urbanindo]
+bastion-urbanindo ansible_host=52.74.82.98 ansible_user=ubuntu
 
-[e-commerce]
-prod-e-commerce-1 ansible_host=172.31.29.154 ansible_user=devops
-prod-e-commerce-2 ansible_host=172.31.25.207 ansible_user=devops
-prod-e-commerce-3 ansible_host=172.31.23.233 ansible_user=devops
+[bastion-99id]
+bastion-99id ansible_host=bastion.99iddev.net ansible_user=ubuntu
 
-[smart-retail]
-prod-smart-retail-002 ansible_host=172.31.20.119 
-
-[frontend]
-xxxxxhostxxx ansible_host=x.x.x.x 
-
-[metabase]
-metabase.cekpoin.net ansible_host=metabase.cekpoin.net local_ip=172.31.26.102 ansible_user=centos
-
-[devops:children]
-jenkins
-devs
-monitoring
-
-[jenkins]
-ci-jenkins.cekpoin.net ansble_host=ci-jenkins.cekpoin.net local_ip=10.123.1.6 ansible_user=centos
-
-[devs]
-devs.cekpoin.net ansible_host=devs.cekpoin.net local_ip=172.31.27.166 ansible_user=centos ansible_port=2222
-
-[monitoring]
-grafana.ottencoffee.co.id ansible_host=grafana.ottencoffee.co.id local_ip=172.31.18.157 ansible_user=ubuntu
-
+[bastion-r123]
+bastion-r123 ansible_host=bastionr123.99iddev.net ansible_host=ec2-user
