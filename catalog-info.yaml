@@ -1,0 +1,9 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: ansible-projects
+  annotations:
+    github.com/project-slug: ahmadgfari/ansible-projects
+spec:
+  type: other
+  lifecycle: unknown
